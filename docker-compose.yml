@@ -1,7 +1,21 @@
-version: '3'
+version: "3.7"
 services:
   calculator-server:
     image: aruns1975/calculator-server
+    ports:
+      - 8080:8080
+    deploy:
+      replicas: 0
+      update_config:
+        parallelism: 1
+        delay: 10s
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/actuator/health"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    
   calculator-client:
     image: aruns1975/calculator-client
     ports:
@@ -9,3 +23,5 @@ services:
     environment:
       - calculator.server.url=calculator-server
       - calculator.server.port=8080
+    deploy:
+      replicas: 0
