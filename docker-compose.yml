@@ -18,7 +18,7 @@ services:
     ports:
       - 80:9090
     environment:
-      - calculator.server.url=calculator_calculator-server
+      - calculator.server.url=calculator-server
       - calculator.server.port=8080
     deploy:
       replicas: 1

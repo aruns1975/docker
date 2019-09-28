@@ -16,22 +16,30 @@ public class Calculator {
 	
 	@RequestMapping("/add")
 	public Double add(@RequestParam("first")double a, @RequestParam("second") Double b){
-		return restTemplate.getForObject(serverUrl+"/calculator/add?first="+a+"&second="+b, Double.class);
+		String url = serverUrl+"/calculator/add?first="+a+"&second="+b;
+		System.out.println("The url called -> "+url);
+		return restTemplate.getForObject(url, Double.class);
 	}
 	
 	@RequestMapping("/subtract")
 	public Double subtract(@RequestParam("first")double a, @RequestParam("second") Double b){
-		return restTemplate.getForObject(serverUrl+"/calculator/subtract?first="+a+"&second="+b, Double.class);
+		String url = serverUrl+"/calculator/subtract?first="+a+"&second="+b;
+		System.out.println("The url called -> "+url);
+		return restTemplate.getForObject(url, Double.class);
 	}
 	
-	@RequestMapping("/muliply")
+	@RequestMapping("/multiply")
 	public Double multiply(@RequestParam("first")double a, @RequestParam("second") Double b){
-		return restTemplate.getForObject(serverUrl+"/calculator/muliply?first="+a+"&second="+b, Double.class);
+		String url = serverUrl+"/calculator/muliply?first="+a+"&second="+b;
+		System.out.println("The url called -> "+url);
+		return restTemplate.getForObject(url, Double.class);
 	}
 	
 	@RequestMapping("/divide")
 	public Double divide(@RequestParam("first")double a, @RequestParam("second") Double b){
-		return restTemplate.getForObject(serverUrl+"/calculator/divide?first="+a+"&second="+b, Double.class);
+		String url = serverUrl+"/calculator/divide?first="+a+"&second="+b;
+		System.out.println("The url called -> "+url);
+		return restTemplate.getForObject(url, Double.class);
 	}
 
 }
