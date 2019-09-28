@@ -1,0 +1,11 @@
+version: '3'
+services:
+  calculator-server:
+    image: aruns1975/calculator-server
+  calculator-client:
+    image: aruns1975/calculator-client
+    ports:
+      - 80:9090
+    environment:
+      - calculator.server.url=calculator-server
+      - calculator.server.port=8080
